@@ -119,6 +119,25 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Bob Duncan",
+      "bio": "My grandma always said I was a swell guy",
+      "movies": [],
+      "id": "2r2xwwK2jqs"
+    },
+    {
+      "name": "Ham Nelson",
+      "bio": "I have two eyebrows and I am not afraid to use them.",
+      "movies": [],
+      "id": "FfEOWiIFR8E"
+    },
+    {
+      "name": "Douglas McQuiad",
+      "bio": "I have a lifelong feud with my neighbor Greg. He is my nemesis and will experience the full force of my wrath!",
+      "movies": [],
+      "id": "QjKjCB1Vq8E"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

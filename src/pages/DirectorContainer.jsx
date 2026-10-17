@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
+import { Outlet, Link } from 'react-router-dom';
 
 const DirectorContainer = () => {
     const [directors, setDirectors] = useState([])
@@ -11,15 +12,30 @@ const DirectorContainer = () => {
             return r.json()
         })
         .then(setDirectors)
-        .catch(console.log)
+        .catch(console.error)
     }, [])
+
+    const addDirector = (newDirector) => {
+        setDirectors(previousDirectors => [...previousDirectors, newDirector])
+    }
+
+    const updateDirector = (updatedDirector) => {
+        setDirectors(previousDirectors => previousDirectors.map(d => {
+            if (d.id === updatedDirector.id) {
+                return updatedDirector
+            }
+            return d
+        }))
+    }
 
     return (
         <>
             <NavBar />
             <main>
                 <h1>Welcome to the Director's Directory!</h1>
+                <Link to="directors/new">Add New Director</Link>
                 {/* all director components should render here depending on route */}
+                <Outlet context={{ directors, addDirector, updateDirector }} />
             </main>
         </>
     );
